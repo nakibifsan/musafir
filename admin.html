@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Musafir Admin Panel</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>⚙️</text></svg>">
+</head>
+<body class="admin-body">
+
+<!-- ══ LOGIN ══ -->
+<div id="admin-login" class="admin-login">
+  <div class="login-card">
+    <div style="width:60px;height:60px;background:linear-gradient(135deg,#075985,#38BDF8);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+    </div>
+    <h2>Musafir Admin</h2>
+    <p>CMS Panel — Enter your password to continue</p>
+    <div class="login-error" id="login-error"></div>
+    <form id="login-form">
+      <div class="admin-field">
+        <label for="admin-password">Password</label>
+        <input type="password" id="admin-password" placeholder="Enter admin password" autocomplete="current-password">
+      </div>
+      <button type="submit" class="admin-save-btn" style="width:100%;padding:14px;font-size:.95rem;border-radius:12px;">
+        Login to Admin Panel
+      </button>
+    </form>
+    <p style="font-size:.72rem;color:#94a3b8;margin-top:20px;">Default password: <code>musafir2024</code></p>
+  </div>
+</div>
+
+<!-- ══ ADMIN APP ══ -->
+<div id="admin-app" class="admin-wrap" style="display:none;">
+
+  <!-- Sidebar -->
+  <aside class="admin-sidebar">
+    <div class="admin-sidebar-logo">
+      <div style="width:38px;height:38px;background:rgba(255,255,255,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2C12 2 4 10.5 4 15a8 8 0 0016 0c0-4.5-8-13-8-13z"/></svg>
+      </div>
+      <div>
+        <div class="admin-sidebar-logo-text">Musafir</div>
+        <div class="admin-sidebar-logo-sub">Content Manager</div>
+      </div>
+    </div>
+
+    <nav class="admin-nav">
+      <div class="admin-nav-group-label">Overview</div>
+      <button class="admin-nav-item active" data-panel="dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <span class="nav-label">Dashboard</span>
+      </button>
+
+      <div class="admin-nav-group-label" style="margin-top:8px;">Page Sections</div>
+      <button class="admin-nav-item" data-panel="hero">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+        <span class="nav-label">Hero Section</span>
+      </button>
+      <button class="admin-nav-item" data-panel="about">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span class="nav-label">About Section</span>
+      </button>
+      <button class="admin-nav-item" data-panel="products">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C12 2 4 10.5 4 15a8 8 0 0016 0c0-4.5-8-13-8-13z"/></svg>
+        <span class="nav-label">Products</span>
+      </button>
+      <button class="admin-nav-item" data-panel="why">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <span class="nav-label">Why Choose Us</span>
+      </button>
+      <button class="admin-nav-item" data-panel="gallery">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span class="nav-label">Gallery</span>
+      </button>
+      <button class="admin-nav-item" data-panel="contact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A2 2 0 012 4.11h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 11.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <span class="nav-label">Contact Info</span>
+      </button>
+      <button class="admin-nav-item" data-panel="footer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <span class="nav-label">Footer</span>
+      </button>
+
+      <div class="admin-nav-group-label" style="margin-top:8px;">Settings</div>
+      <button class="admin-nav-item" data-panel="settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 0 1 21 12a10 10 0 0 1-1.93 7.07M17 7A7 7 0 0 1 19 12a7 7 0 0 1-2 5M14 9.5A5 5 0 0 1 17 12a5 5 0 0 1-3 2.5"/></svg>
+        <span class="nav-label">Site Settings</span>
+      </button>
+    </nav>
+
+    <div class="admin-logout">
+      <button id="admin-logout-btn">
+        ↩ Logout
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="admin-main">
+    <!-- Header -->
+    <header class="admin-header">
+      <div>
+        <h1 id="admin-panel-title">Dashboard</h1>
+        <p>Musafir Drinking Water — Content Management</p>
+      </div>
+      <div class="admin-header-right">
+        <a href="index.html" target="_blank" class="view-site-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          View Site
+        </a>
+      </div>
+    </header>
+
+    <div class="admin-content">
+
+      <!-- ── DASHBOARD ── -->
+      <div class="admin-panel active" id="panel-dashboard">
+        <div class="admin-stats">
+          <div class="stat-card">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C12 2 4 10.5 4 15a8 8 0 0016 0c0-4.5-8-13-8-13z"/></svg></div>
+            <div class="num">3</div>
+            <div class="lbl">Products Listed</div>
+          </div>
+          <div class="stat-card">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+            <div class="num">6</div>
+            <div class="lbl">Gallery Images</div>
+          </div>
+          <div class="stat-card">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+            <div class="num">7</div>
+            <div class="lbl">Page Sections</div>
+          </div>
+          <div class="stat-card">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A2 2 0 012 4.11h3"/></svg></div>
+            <div class="num">2</div>
+            <div class="lbl">Hotline Numbers</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <h3>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                Quick Actions
+              </h3>
+            </div>
+            <div class="admin-card-body" style="display:flex;flex-direction:column;gap:12px;">
+              <button class="admin-nav-item" data-panel="hero" style="background:var(--clr-light);color:var(--clr-deep);border-radius:10px;padding:14px 16px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg>
+                <span class="nav-label">Edit Hero Section</span>
+              </button>
+              <button class="admin-nav-item" data-panel="products" style="background:var(--clr-light);color:var(--clr-deep);border-radius:10px;padding:14px 16px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C12 2 4 10.5 4 15a8 8 0 0016 0c0-4.5-8-13-8-13z"/></svg>
+                <span class="nav-label">Manage Products</span>
+              </button>
+              <button class="admin-nav-item" data-panel="gallery" style="background:var(--clr-light);color:var(--clr-deep);border-radius:10px;padding:14px 16px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <span class="nav-label">Manage Gallery</span>
+              </button>
+              <button class="admin-nav-item" data-panel="contact" style="background:var(--clr-light);color:var(--clr-deep);border-radius:10px;padding:14px 16px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07"/></svg>
+                <span class="nav-label">Update Contact Info</span>
+              </button>
+            </div>
+          </div>
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <h3>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                How It Works
+              </h3>
+            </div>
+            <div class="admin-card-body">
+              <div style="display:flex;flex-direction:column;gap:14px;">
+                <div style="display:flex;gap:12px;align-items:flex-start;">
+                  <div style="width:28px;height:28px;background:var(--clr-light);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--clr-deep2);font-size:.82rem;flex-shrink:0;">1</div>
+                  <div style="font-size:.85rem;color:var(--clr-text-muted);line-height:1.5;">Click any section in the sidebar to edit its content.</div>
+                </div>
+                <div style="display:flex;gap:12px;align-items:flex-start;">
+                  <div style="width:28px;height:28px;background:var(--clr-light);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--clr-deep2);font-size:.82rem;flex-shrink:0;">2</div>
+                  <div style="font-size:.85rem;color:var(--clr-text-muted);line-height:1.5;">Update the fields and click <strong>Save Changes</strong>.</div>
+                </div>
+                <div style="display:flex;gap:12px;align-items:flex-start;">
+                  <div style="width:28px;height:28px;background:var(--clr-light);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--clr-deep2);font-size:.82rem;flex-shrink:0;">3</div>
+                  <div style="font-size:.85rem;color:var(--clr-text-muted);line-height:1.5;">Click <strong>View Site</strong> to see changes live on the frontend.</div>
+                </div>
+                <div style="display:flex;gap:12px;align-items:flex-start;">
+                  <div style="width:28px;height:28px;background:var(--clr-light);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--clr-deep2);font-size:.82rem;flex-shrink:0;">4</div>
+                  <div style="font-size:.85rem;color:var(--clr-text-muted);line-height:1.5;">Data is saved locally now — Supabase can be connected later.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── HERO PANEL ── -->
+      <div class="admin-panel" id="panel-hero">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3>Hero Section Editor</h3>
+            <button class="admin-save-btn" id="save-hero">Save Changes</button>
+          </div>
+          <div class="admin-card-body">
+            <div class="admin-grid-2">
+              <div>
+                <div class="admin-field">
+                  <label>Badge / Pre-Title</label>
+                  <input type="text" id="admin-hero-subheading" placeholder="e.g. PREMIUM QUALITY">
+                </div>
+                <div class="admin-field">
+                  <label>Main Heading (use \n for line break)</label>
+                  <textarea id="admin-hero-heading" rows="3" placeholder="Pure Water,\nPure Life"></textarea>
+                </div>
+                <div class="admin-field">
+                  <label>Bangla Subheading</label>
+                  <textarea id="admin-hero-bangla" rows="2"></textarea>
+                </div>
+              </div>
+              <div>
+                <div class="admin-field">
+                  <label>CTA Button 1 Text</label>
+                  <input type="text" id="admin-hero-cta1" placeholder="Order Now">
+                </div>
+                <div class="admin-field">
+                  <label>CTA Button 2 Text</label>
+                  <input type="text" id="admin-hero-cta2" placeholder="Contact Us">
+                </div>
+                <div class="admin-field">
+                  <label>Bottle Image URL (GitHub raw link)</label>
+                  <input type="url" id="admin-hero-bottle" placeholder="https://...">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── ABOUT PANEL ── -->
+      <div class="admin-panel" id="panel-about">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3>About Section Editor</h3>
+            <button class="admin-save-btn" id="save-about">Save Changes</button>
+          </div>
+          <div class="admin-card-body">
+            <div class="admin-field">
+              <label>Section Title</label>
+              <input type="text" id="admin-about-title">
+            </div>
+            <div class="admin-field">
+              <label>Description</label>
+              <textarea id="admin-about-desc" rows="3"></textarea>
+            </div>
+            <div style="margin-top:24px;">
+              <p style="font-weight:700;color:var(--clr-deep);font-size:.85rem;margin-bottom:16px;">Feature Cards</p>
+              <div style="display:flex;flex-direction:column;gap:20px;">
+                <div class="admin-card" style="margin-bottom:0;">
+                  <div class="admin-card-header"><h3>Feature Card 1</h3></div>
+                  <div class="admin-card-body admin-grid-2">
+                    <div class="admin-field"><label>Title</label><input type="text" id="admin-feature-title-0"></div>
+                    <div class="admin-field"><label>Description</label><textarea id="admin-feature-text-0" rows="2"></textarea></div>
+                  </div>
+                </div>
+                <div class="admin-card" style="margin-bottom:0;">
+                  <div class="admin-card-header"><h3>Feature Card 2</h3></div>
+                  <div class="admin-card-body admin-grid-2">
+                    <div class="admin-field"><label>Title</label><input type="text" id="admin-feature-title-1"></div>
+                    <div class="admin-field"><label>Description</label><textarea id="admin-feature-text-1" rows="2"></textarea></div>
+                  </div>
+                </div>
+                <div class="admin-card" style="margin-bottom:0;">
+                  <div class="admin-card-header"><h3>Feature Card 3</h3></div>
+                  <div class="admin-card-body admin-grid-2">
+                    <div class="admin-field"><label>Title</label><input type="text" id="admin-feature-title-2"></div>
+                    <div class="admin-field"><label>Description</label><textarea id="admin-feature-text-2" rows="2"></textarea></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PRODUCTS PANEL ── -->
+      <div class="admin-panel" id="panel-products">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3>Products Manager</h3>
+            <button class="admin-add-btn" id="add-product-btn">+ Add Product</button>
+          </div>
+          <div class="admin-card-body">
+            <div id="product-admin-list"></div>
+            <p style="font-size:.78rem;color:var(--clr-text-muted);margin-top:12px;">Changes are reflected on the homepage automatically after saving.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── WHY PANEL ── -->
+      <div class="admin-panel" id="panel-why">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3>Why Choose Us Editor</h3>
+            <button class="admin-save-btn" id="save-why">Save Changes</button>
+          </div>
+          <div class="admin-card-body">
+            <div class="admin-field">
+              <label>Section Title</label>
+              <input type="text" id="admin-why-title">
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;">
+              <div class="admin-card" style="margin-bottom:0;">
+                <div class="admin-card-header"><h3>Column 1</h3></div>
+                <div class="admin-card-body">
+                  <div class="admin-field"><label>Title</label><input type="text" id="admin-why-title-0"></div>
+                  <div class="admin-field"><label>Text</label><textarea id="admin-why-text-0" rows="2"></textarea></div>
+                </div>
+              </div>
+              <div class="admin-card" style="margin-bottom:0;">
+                <div class="admin-card-header"><h3>Column 2</h3></div>
+                <div class="admin-card-body">
+                  <div class="admin-field"><label>Title</label><input type="text" id="admin-why-title-1"></div>
+                  <div class="admin-field"><label>Text</label><textarea id="admin-why-text-1" rows="2"></textarea></div>
+                </div>
+              </div>
+              <div class="admin-card" style="margin-bottom:0;">
+                <div class="admin-card-header"><h3>Column 3</h3></div>
+                <div class="admin-card-body">
+                  <div class="admin-field"><label>Title</label><input type="text" id="admin-why-title-2"></div>
+                  <div class="admin-field"><label>Text</label><textarea id="admin-why-text-2" rows="2"></textarea></div>
+                </div>
+              </div>
+              <div class="admin-card" style="margin-bottom:0;">
+                <div class="admin-card-header"><h3>Column 4</h3></div>
+                <div class="admin-card-body">
+                  <div class="admin-field"><label>Title</label><input type="text" id="admin-why-title-3"></div>
+                  <div class="admin-field"><label>Text</label><textarea id="admin-why-text-3" rows="2"></textarea></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── GALLERY PANEL ── -->
+      <div class="admin-panel" id="panel-gallery">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3>Gallery Manager</h3>
+            <button class="admin-add-btn" id="add-gallery-btn">+ Add Image URL</button>
+          </div>
+          <div class="admin-card-body">
+            <div class="gallery-admin-grid" id="gallery-admin-grid"></div>
+            <p style="font-size:.78rem;color:var(--clr-text-muted);">Hover an image and click ✕ to remove it. Paste GitHub raw image URLs or any public image URL.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CONTACT PANEL ── -->
+      <div class="admin-panel" id="panel-contact">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3>Contact Information</h3>
+            <button class="admin-save-btn" id="save-contact">Save Changes</button>
+          </div>
+          <div class="admin-card-body">
+            <div class="admin-grid-2">
+              <div class="admin-field">
+                <label>Hotline 1</label>
+                <input type="text" id="admin-phone1" placeholder="+880 1234-567890">
+              </div>
+              <div class="admin-field">
+                <label>Hotline 2</label>
+                <input type="text" id="admin-phone2" placeholder="+880 9876-543210">
+              </div>
+              <div class="admin-field">
+                <label>Support Email</label>
+                <input type="email" id="admin-email" placeholder="hello@musafirwater.com">
+              </div>
+              <div class="admin-field">
+                <label>WhatsApp Number</label>
+                <input type="text" id="admin-whatsapp" placeholder="+8801234567890">
+              </div>
+            </div>
+            <div class="admin-field">
+              <label>Address</label>
+              <input type="text" id="admin-address" placeholder="123 Purity Lane, Dhaka">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── FOOTER PANEL ── -->
+      <div class="admin-panel" id="panel-footer">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3>Footer Editor</h3>
+            <button class="admin-save-btn" id="save-footer">Save Changes</button>
+          </div>
+          <div class="admin-card-body">
+            <div class="admin-field">
+              <label>Brand Tagline</label>
+              <textarea id="admin-footer-tagline" rows="2"></textarea>
+            </div>
+            <div class="admin-grid-2">
+              <div class="admin-field">
+                <label>Facebook URL</label>
+                <input type="url" id="admin-footer-fb" placeholder="https://facebook.com/...">
+              </div>
+              <div class="admin-field">
+                <label>Instagram URL</label>
+                <input type="url" id="admin-footer-ig" placeholder="https://instagram.com/...">
+              </div>
+              <div class="admin-field">
+                <label>Twitter / X URL</label>
+                <input type="url" id="admin-footer-tw" placeholder="https://twitter.com/...">
+              </div>
+              <div class="admin-field">
+                <label>YouTube URL</label>
+                <input type="url" id="admin-footer-yt" placeholder="https://youtube.com/...">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── SETTINGS PANEL ── -->
+      <div class="admin-panel" id="panel-settings">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3>Site Settings</h3>
+            <button class="admin-save-btn" id="save-site">Save Changes</button>
+          </div>
+          <div class="admin-card-body">
+            <div class="admin-grid-2">
+              <div class="admin-field">
+                <label>Brand Name</label>
+                <input type="text" id="admin-site-name" placeholder="Musafir Drinking Water">
+              </div>
+              <div class="admin-field">
+                <label>Site Tagline</label>
+                <input type="text" id="admin-site-tagline" placeholder="Pure Water, Pure Life">
+              </div>
+            </div>
+            <div class="admin-field">
+              <label>Logo Image URL (GitHub raw link)</label>
+              <input type="url" id="admin-site-logo" placeholder="https://raw.githubusercontent.com/...">
+            </div>
+            <div style="margin-top:32px;padding:20px;background:#fff8f8;border:1px solid #fca5a5;border-radius:12px;">
+              <p style="font-weight:700;color:#b91c1c;font-size:.88rem;margin-bottom:8px;">⚠ Danger Zone</p>
+              <p style="font-size:.8rem;color:#6b7280;margin-bottom:16px;">Resetting will restore all content to its original defaults. This action cannot be undone.</p>
+              <button id="reset-all-btn" style="padding:10px 24px;background:#fee2e2;color:#b91c1c;border:1px solid #fca5a5;border-radius:10px;font-weight:700;cursor:pointer;font-size:.85rem;transition:all .2s;">Reset All Settings to Default</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /admin-content -->
+  </main>
+</div><!-- /admin-app -->
+
+<!-- Product Modal -->
+<div class="modal-overlay" id="product-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeProductModal()">×</button>
+    <h2 id="pm-modal-title">Add / Edit Product</h2>
+    <input type="hidden" id="pm-id">
+    <div class="admin-grid-2">
+      <div class="admin-field">
+        <label>Product Name</label>
+        <input type="text" id="pm-name" placeholder="Musafir 500ml">
+      </div>
+      <div class="admin-field">
+        <label>Size Label</label>
+        <input type="text" id="pm-size" placeholder="500ml">
+      </div>
+      <div class="admin-field">
+        <label>Sub-title</label>
+        <input type="text" id="pm-sub" placeholder="Everyday Carry">
+      </div>
+      <div class="admin-field">
+        <label>Price</label>
+        <input type="text" id="pm-price" placeholder="৳12">
+      </div>
+      <div class="admin-field">
+        <label>Badge Text</label>
+        <input type="text" id="pm-badge" placeholder="Best Seller">
+      </div>
+      <div class="admin-field">
+        <label>Image URL (GitHub raw)</label>
+        <input type="url" id="pm-img" placeholder="https://...">
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;justify-content:flex-end;margin-top:8px;">
+      <button onclick="closeProductModal()" style="padding:10px 24px;background:#f1f5f9;border:none;border-radius:10px;font-weight:700;cursor:pointer;">Cancel</button>
+      <button onclick="saveProduct()" class="admin-save-btn">Save Product</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

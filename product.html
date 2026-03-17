@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products | Musafir Drinking Water</title>
+  <meta name="description" content="Shop Musafir Drinking Water – 500ml, 1L, and 2L pure bottled water. Free delivery available.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>💧</text></svg>">
+</head>
+<body>
+
+<nav class="nav" id="main-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2C12 2 4 10.5 4 15a8 8 0 0016 0c0-4.5-8-13-8-13z" fill="white"/></svg></div>
+      <span class="nav-logo-text">Musafir</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="product.html" class="active">Products</a>
+      <a href="why us.html">Why Us</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-cta"><a href="contact.html" class="btn btn-primary" style="padding:10px 24px;font-size:.85rem;">Order Now</a></div>
+    <button class="nav-hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-mobile">
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="product.html">Products</a><a href="why us.html">Why Us</a><a href="contact.html">Contact</a>
+</div>
+
+<!-- Header -->
+<section style="padding:140px 24px 80px;background:linear-gradient(135deg,#f0f9ff 0%,#e0f2fe 100%);text-align:center;">
+  <div class="container">
+    <span class="badge badge-blue" style="margin-bottom:16px;">Our Range</span>
+    <h1 class="section-title" style="color:var(--clr-deep);margin-bottom:12px;">Pure Stillness</h1>
+    <div class="divider center"></div>
+    <p class="section-sub" style="max-width:520px;margin:16px auto 0;">Ethically sourced, naturally filtered. Musafir bottled water is a journey of purity in every drop.</p>
+  </div>
+</section>
+
+<!-- Product Grid -->
+<section style="padding:80px 24px;background:#fff;">
+  <div class="container">
+    <!-- Filter tabs -->
+    <div style="display:flex;gap:8px;margin-bottom:48px;border-bottom:2px solid var(--clr-light2);flex-wrap:wrap;">
+      <button onclick="filterProducts(this,'all')" class="filter-btn active" style="padding:10px 24px;border:none;background:none;font-weight:700;color:var(--clr-deep2);border-bottom:3px solid var(--clr-deep2);margin-bottom:-2px;cursor:pointer;font-size:.9rem;transition:all .2s;">All Sizes</button>
+      <button onclick="filterProducts(this,'500ml')" class="filter-btn" style="padding:10px 24px;border:none;background:none;font-weight:600;color:var(--clr-text-muted);border-bottom:3px solid transparent;margin-bottom:-2px;cursor:pointer;font-size:.9rem;transition:all .2s;">500ml</button>
+      <button onclick="filterProducts(this,'1L')" class="filter-btn" style="padding:10px 24px;border:none;background:none;font-weight:600;color:var(--clr-text-muted);border-bottom:3px solid transparent;margin-bottom:-2px;cursor:pointer;font-size:.9rem;transition:all .2s;">1 Liter</button>
+      <button onclick="filterProducts(this,'2L')" class="filter-btn" style="padding:10px 24px;border:none;background:none;font-weight:600;color:var(--clr-text-muted);border-bottom:3px solid transparent;margin-bottom:-2px;cursor:pointer;font-size:.9rem;transition:all .2s;">2 Liters</button>
+    </div>
+
+    <div class="products-grid" id="products-grid">
+      <div class="product-card glass fade-in-up" data-size="500ml">
+        <div class="product-img-wrap">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjQTAqlB2OJSwNBwGIdxOF-2avWxDaAZgp_mwypOO843ttMqzEPhXmmiz9fdJEhXxgqsv184rnTfnrMfRX3LjWOmLLzAHU_ozfu3ML9H4NZl_Z7F2ZuUJPMIYbQsfcgDz3mQgIG2qwgrCCtdGf2_0_s5r0hdhUhyHhwO5FSIi2Y_OaQU-f4HLFZDjpBH59weQkmrFlX3eVtPeZcRwjHT4VI9WB3bJX1AEbsacyecBYZTkGF4jIYwVO4AouD6ZXS8dAPGo8ZXqy6CM" alt="500ml" loading="lazy">
+          <span class="product-badge">Travel Size</span>
+        </div>
+        <div class="product-info">
+          <h3>Musafir 500ml</h3>
+          <p class="product-sub">Perfect for on-the-go hydration. Fits in any bag or cup holder.</p>
+          <p class="product-price">৳12</p>
+          <button class="product-btn" onclick="window.location.href='contact.html'">Order Now</button>
+        </div>
+      </div>
+      <div class="product-card glass fade-in-up" data-size="1L" style="animation-delay:.12s">
+        <div class="product-img-wrap">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtGgQcdezbxXmUOshU0Q062rRuKtRCgIR-nwc-IUz9qmHImzAQRsAqlmMUUCnIMYqnUkWlWuliU-J1pXE_Z9sssvK5clZQigH46I-B18tOpU4em40Pcts4ugPstXiUZNBASXigOxIHylFqeIcRf-cJaBuM7hPo4KnJiAXibnuDe8iElMuY0RSyGY6j3W71mFgSNde03n-h8xTob57TcpZ2M85tLxKNcvaDFkROnsbMStg5V-3nZfYZw2tH4z3eqfBT880PkGnr-oA" alt="1L" loading="lazy">
+          <span class="product-badge">Best Seller</span>
+        </div>
+        <div class="product-info">
+          <h3>Musafir 1 Liter</h3>
+          <p class="product-sub">The daily essential. Perfect for desk, gym, or dinner table.</p>
+          <p class="product-price">৳20</p>
+          <button class="product-btn" onclick="window.location.href='contact.html'">Order Now</button>
+        </div>
+      </div>
+      <div class="product-card glass fade-in-up" data-size="2L" style="animation-delay:.24s">
+        <div class="product-img-wrap">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYbAfLmGwhV0FD0T67tB7Ey3IXs8ikGmXXBTeovIAX2UDm40pGfs4CwoRv7WRwe2OMVEr_MUtE61jneANYUCvAsS4qceeXHdP0mTnt8xbaI6p4k3vDHrAV-gf9Nfdm1RzC_GPjJBT8pWkVX-AvqX3b0vvvlBGVabDZg_yrqz7gVKbVtDwHui0zxEjqRi_sTdKzE929a2CLwCC9Ol63FBunjkU5oZCpiYyH47IzjoisPb43MGTW06AUalI_mbBWao3mvrYF2Ggra1E" alt="2L" loading="lazy">
+          <span class="product-badge">Family</span>
+        </div>
+        <div class="product-info">
+          <h3>Musafir 2 Liters</h3>
+          <p class="product-sub">Family size. Ideal for home, office, or long journeys.</p>
+          <p class="product-price">৳35</p>
+          <button class="product-btn" onclick="window.location.href='contact.html'">Order Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Banner -->
+<section style="padding:60px 24px;background:var(--clr-bg);">
+  <div class="container">
+    <div style="background:linear-gradient(135deg,var(--clr-deep),var(--clr-deep2));border-radius:var(--radius-lg);padding:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
+      <div style="text-align:center;">
+        <div style="width:52px;height:52px;background:rgba(255,255,255,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7DD3FC" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h4 style="color:#fff;font-weight:700;font-size:.9rem;margin-bottom:6px;">Eco-Conscious</h4>
+        <p style="color:rgba(255,255,255,.65);font-size:.78rem;">100% recyclable packaging</p>
+      </div>
+      <div style="text-align:center;">
+        <div style="width:52px;height:52px;background:rgba(255,255,255,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7DD3FC" stroke-width="2"><path d="M12 2C12 2 4 10.5 4 15a8 8 0 0016 0c0-4.5-8-13-8-13z"/><path d="M9 15l2 2 4-4"/></svg>
+        </div>
+        <h4 style="color:#fff;font-weight:700;font-size:.9rem;margin-bottom:6px;">Natural Filter</h4>
+        <p style="color:rgba(255,255,255,.65);font-size:.78rem;">Multi-stage purification</p>
+      </div>
+      <div style="text-align:center;">
+        <div style="width:52px;height:52px;background:rgba(255,255,255,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7DD3FC" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h4 style="color:#fff;font-weight:700;font-size:.9rem;margin-bottom:6px;">Mineral Rich</h4>
+        <p style="color:rgba(255,255,255,.65);font-size:.78rem;">Essential electrolytes balanced</p>
+      </div>
+      <div style="text-align:center;">
+        <div style="width:52px;height:52px;background:rgba(255,255,255,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7DD3FC" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <h4 style="color:#fff;font-weight:700;font-size:.9rem;margin-bottom:6px;">Top Rated</h4>
+        <p style="color:rgba(255,255,255,.65);font-size:.78rem;">5-star customer reviews</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo"><div class="nav-logo-icon" style="width:38px;height:38px;"><svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:#fff"><path d="M12 2C12 2 4 10.5 4 15a8 8 0 0016 0c0-4.5-8-13-8-13z"/></svg></div><span class="footer-logo-text">Musafir</span></div>
+        <p>Dedicated to providing the purest bottled water for your healthy lifestyle.</p>
+      </div>
+      <div class="footer-col"><h5>Quick Links</h5><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="product.html">Products</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h5>Support</h5><ul><li><a href="#">Delivery Policy</a></li><li><a href="admin.html">Admin Panel</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Musafir Drinking Water. All Rights Reserved.</p></div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+function filterProducts(btn, size) {
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    b.style.color = 'var(--clr-text-muted)';
+    b.style.borderBottomColor = 'transparent';
+    b.style.fontWeight = '600';
+  });
+  btn.style.color = 'var(--clr-deep2)';
+  btn.style.borderBottomColor = 'var(--clr-deep2)';
+  btn.style.fontWeight = '700';
+  document.querySelectorAll('.product-card[data-size]').forEach(card => {
+    card.style.display = (size === 'all' || card.dataset.size === size) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
